@@ -1,5 +1,62 @@
+var request  = require('request');
+
+var apiOptions = {
+    server: "http://localhost:3000"
+};
+
+var requestOptions = {
+    url: "http://localhost/api/path",
+    method :"GET",
+    json: {},
+    qs: {
+        offset: 20
+    }
+};
+request(requestOptions, function (err,response,body)
+{
+    if (err) {
+        console.log(err)
+    } else if (response.statusCode = 200) {
+        console.log(body);
+    } else {
+        console.log(response.statusCode)
+    }
+});
+
 /* Получить (GET) домашнюю страницу */
-module.exports.homelist = function(req, res){
+
+var renderHomepage = function(req,res){
+    res.render('locations-list', {
+            title: 'find a place to work with wifi',
+            pageHeader: {
+                title: "mySite",
+                strapline: "Поиск мест для работы с вафлей!"
+            },
+            sidebar: "Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Loc8r help you find the place you're looking for.",
+            locations: [{
+                name: 'Чайная ложка',
+                address: '125 High Street, Reading, RG6 1PS',
+                rating: 3,
+                facilities: ['Hot drinks', 'Food', 'Premium wifi'],
+                distance: '100m'
+            }, {
+                name: 'Кофе хауз',
+                address: '125 High Street, Reading, RG6 1PS',
+                rating: 4,
+                facilities: ['Hot drinks', 'Food', 'Premium wifi'],
+                distance: '200m'
+            }, {
+                name: 'Бургер кинг',
+                address: '125 High Street, Reading, RG6 1PS',
+                rating: 2,
+                facilities: ['Food', 'Premium wifi'],
+                distance: '250m'
+            }]
+        });
+
+};
+
+module.exports.homelist = function (req,res) {
     res.render('locations-list', {
         title: 'find a place to work with wifi',
         pageHeader: {
@@ -27,8 +84,7 @@ module.exports.homelist = function(req, res){
             distance: '250m'
         }]
     });
-};
-
+}
 /* Получить (GET) страницу с информацией о местоположениях */
 module.exports.locationInfo = function(req, res){
     res.render('location-info',
