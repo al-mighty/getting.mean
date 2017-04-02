@@ -32,6 +32,11 @@ block content
         div.form-group
           label(for="exampleInputPassword1" aria-describedby="emailHelp") password
           input#exampleInputPassword1.form-control(type="password" placeholder="Password")
+
+      form
+        div.form-group
+          label(for="imgBook") Загрузка обложки книги
+          input#imgBook.form-control(type="file" placeholder="Загрузите картинку >_<")
         div.form-group
           label(for="nameBook") Название книги
           input#nameBook(type="text").form-control
@@ -50,8 +55,7 @@ block content
           option 3012
           option 0231
 
-        button.btn.btn-primary Отправить
+        span.btn.btn-primary#loadBook Отправить
+
   h1= title
   p Welcome to #{title}
-
-  <script src="/javascripts/addBook.js"></script>

@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Loc = mongoose.model('Location');
+var pl = mongoose.model('playlist');
 
 var sendJSONresponse = function(res, status, content) {
     res.status(status);
