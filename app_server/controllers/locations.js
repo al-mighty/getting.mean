@@ -84,9 +84,7 @@ module.exports.homelist = function (req,res) {
             distance: '250m'
         }]
     });
-};
-
-
+}
 /* Получить (GET) страницу с информацией о местоположениях */
 module.exports.locationInfo = function(req, res){
     res.render('location-info',

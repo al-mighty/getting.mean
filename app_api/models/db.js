@@ -55,8 +55,4 @@ process.on('SIGTERM', function() {
     });
 });
 
-exports.get = function () {
-    return state.db;
-};
-
-require('./playlist');
+require('./locations');
